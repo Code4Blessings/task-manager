@@ -2,6 +2,18 @@
 
 ## Lecture - Inserting Documents
 
+#### Create Read Update Delete (CRUD)
+
+const mongodb = require('mongodb');
+const MongoClient = mongodb.MongoClient;
+const ObjectId = mongodb.ObjectId
+
+**Destructured way to write the constants up above**
+
+const { MongoClient, ObjectId } = require('mongodb');
+
+**Collections**
+
      db.collection('users').insertOne({
          name: 'Christine',
          age: 37
@@ -28,6 +40,11 @@
     })
 
 ## Assignment
+
+Create a new tasks collection
+- Make 3 documents with a description and completed field
+- Make a conditional statement for error and result
+- Refresh robo 3T and view new documents
 
     db.collection('tasks').insertMany([
         {

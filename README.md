@@ -65,11 +65,20 @@ Create a new tasks collection
         }
         console.log(result.insertedIds)
     })
+    db.collection('users').findOne({ _id: new ObjectId("61bde493acbe2d1a43a70486") }, (error, user) => {
+        if(error) {
+            return console.log('Unable to fetch document')
+        }
+        console.log(user)
+    })
+    db.collection('users').find({age: 47}).toArray((error, users) => {
+        console.log(users);
+    })
     ### Goal: Use find and findone with tasks
     1. Use findOne to fetch the last task by id (print doc to console)
     2. Use find to fetch all the tasks that are not completed (print docs to console)
     3. Test your work
-    
+
     db.collection('tasks').findOne({_id: new ObjectId("61bdec5f9a1bd9769e915f08")}, (error, task) => {
         if(error) {
             return console.log('Unable to fetch task')

@@ -1,5 +1,9 @@
 # task-manager
 
+## Inspired by The Complete Nodejs Developer Course 
+by Andrew Mead
+
+
 ## Lecture - Inserting Documents
 
 #### Create Read Update Delete (CRUD)
@@ -91,3 +95,39 @@ Create a new tasks collection
         }
         console.log(task)
     })
+
+## Update Lesson
+
+    const updatePromise = db.collection('users').updateOne({
+        _id: new ObjectId("61be046d787a61c3b18e83f6")
+    }, {
+        $inc: {
+            age: 1
+        }
+    })
+    updatePromise.then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
+    })
+
+#### Goal Assignment: Use updateMany to complete all tasks
+        1. Check the documentation for UpdateMany
+        2. Setup the call with the query and the updates
+        3. Use promise methods to setup the success/error handlers
+        4. Test your work
+
+ const updateTasks = db.collection('tasks').updateMany({
+        completed: false
+    }, {
+        $set: {
+            completed: true
+        }
+    })
+    updateTasks.then((result) => {
+        console.log(result)
+    }).catch((error) => {
+        console.log(error)
+    })
+
+       

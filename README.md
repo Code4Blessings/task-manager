@@ -3,7 +3,13 @@
 ## Inspired by The Complete Nodejs Developer Course 
 by Andrew Mead
 
-## SQL (Structured Query Language)  NoSQL Databases (Not Only Structured Query Language)
+## To get to the path of mongodb
+
+**1. cd ~ (to get to the root)**
+**2. pwd**
+**3. Then type: /Users/(your username on your machine)/mongodb/bin/mongod --dbpath=/Users/robinwarden/mongodb-data**
+
+## SQL (Structured Query Language) vs NoSQL Databases (Not Only Structured Query Language)
 
 #### Language
 

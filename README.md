@@ -5,14 +5,14 @@ by Andrew Mead
 
 ## SQL (Structured Query Language)  NoSQL Databases (Not Only Structured Query Language)
 
+#### Language
+
 |      **SQL**        |       **NoSQL**             |
 |:--------------------|----------------------------:|
 | Database            | Database                    |
-| Data is stored in a | Data is stored in a         |
-  table                 collection                  |
-| Row of data in table| Data is called "Document"   |
-  is called a row/    |                             |                       
-| record              |                             |
+| Table               | Collection                  |
+| Row/Record          | Document                    |                       
+|                     |                             |
 
 
 ## Lecture - Inserting Documents

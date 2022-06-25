@@ -12,7 +12,7 @@ by Andrew Mead
 | Database            | Database                    |
 | Table               | Collection                  |
 | Row/Record          | Document                    |                       
-|                     |                             |
+| Columns             | Fields                      |
 
 
 ## Lecture - Inserting Documents

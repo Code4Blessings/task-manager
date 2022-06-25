@@ -8,7 +8,7 @@ by Andrew Mead
 #### Language
 
 |      **SQL**        |       **NoSQL**             |
-|:--------------------|----------------------------:|
+|:-------------------:|:---------------------------:|
 | Database            | Database                    |
 | Table               | Collection                  |
 | Row/Record          | Document                    |                       

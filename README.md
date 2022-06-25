@@ -7,7 +7,7 @@ by Andrew Mead
 
 **1. cd ~ (to get to the root)**
 **2. pwd**
-**3. Then type: /Users/(your username on your machine)/mongodb/bin/mongod --dbpath=/Users/robinwarden/mongodb-data**
+**3. Then type: /Users/(your username on your machine)/mongodb/bin/mongod --dbpath=/Users/(your username on your machine)/mongodb-data**
 
 ## SQL (Structured Query Language) vs NoSQL Databases (Not Only Structured Query Language)
 

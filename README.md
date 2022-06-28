@@ -25,15 +25,29 @@ by Andrew Mead
 
 #### Create Read Update Delete (CRUD)
 
+- MongoClient takes in 3 arguments:
+1. connectionURl
+2. An object {useNewUrlParser: true}
+3. A callback function - takes in 2 arguments: error, client
+
 const mongodb = require('mongodb');
 const MongoClient = mongodb.MongoClient;
 const ObjectId = mongodb.ObjectId
+
+#### To view in the Robo 3T GUI viewer
+
+1. Right-click on the Local MongoDB Database
+2. Hit Refresh
+3. Open "Collections" under the task-manager file
+4. Right click on the users collection and click on 'View Documents
 
 **Destructured way to write the constants up above**
 
 const { MongoClient, ObjectId } = require('mongodb');
 
 **Collections**
+
+- inserOne IS NOT synchronous
 
      db.collection('users').insertOne({
          name: 'Christine',

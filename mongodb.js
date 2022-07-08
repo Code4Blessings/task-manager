@@ -3,9 +3,6 @@
 
 const { MongoClient, ObjectId} = require('mongodb')
 
-const id = new ObjectId()
-console.log(id.id.length)
-console.log(id.getTimestamp())
 
 const connectionURL = 'mongodb://127.0.0.1:27017'
 //The IP address works better than the localhost url because the IP will make the app move faster
@@ -19,51 +16,32 @@ const databaseName = 'task-manager'
         return console.log('Unable to connect to database!')
     }
     const db = client.db(databaseName)
-    // db.collection('users').insertOne({
-    //     name: 'Ann',
-    //     age: 37
-    // }, (error, results) => {
-    //     if(error) {
-    //         return ('Unable to insert user')
-    //     }
-    //     console.log(results.insertedId)
-    // })
-    
-//Inserting more than one document
-    db.collection('users').insertMany([
-        {
-            name: 'Christine',
-            age: 27
-        },
-        {
-            name: 'Daniel',
-            age: 14
-        }
-    ], (error, result) => {
+
+    db.collection('tasks').findOne({_id: new ObjectId('62b7cde15a0b04969708e5d5')}, (error, task) => {
         if(error) {
-            return console.log('Unable to insert documents')
+            return console.log('Unable to fetch task')
         }
-        console.log(result.insertedIds)
+        console.log(task)
     })
-//     db.collection('tasks').insertMany([
-//         {
-//             description: 'Spend an hour studying',
-//             completed: true
-//         },
-//         {
-//             description: 'Do laundry',
-//             completed: false
-//         },
-//         {
-//             description: 'Make breakfast',
-//             completed: true
-//         }
-//     ], (error, result) => {
-//         if(error) {
-//             return console.log('Unable to insert tasks')
-//         }
-//         console.log(result.insertedIds)
-//     })
+    db.collection('tasks').find({completed: false}).toArray((error, task) => {
+        console.log(task)
+    })
+    
+    //To find one document (the first one found)
+    // db.collection('users').findOne({name: 'Christine', age: 1}, (error, user) => {
+    //     if(error) {
+    //         return console.log('Unable to fetch')
+    //     }
+    //     console.log(user)
+    // })
+    //To find many documents with the given parameter(s) - This doesn't require a callback but a cursor instead (a pointer to data)
+    //The cursor uses the callback
+    // db.collection('users').find({age: 27}).toArray((error, users) => {
+    //     console.log(users)
+    // })
+    // db.collection('users').find({age: 27}).count((error, count) => {
+    //     console.log(count)
+    // })
 })
 
 

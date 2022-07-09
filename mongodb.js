@@ -11,38 +11,34 @@ const databaseName = 'task-manager'
 
 //Inserting a document
 
- MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) => {
+MongoClient.connect(connectionURL, {useNewUrlParser: true}, (error, client) => {
     if(error) {
         return console.log('Unable to connect to database!')
     }
     const db = client.db(databaseName)
 
-    db.collection('tasks').findOne({_id: new ObjectId('62b7cde15a0b04969708e5d5')}, (error, task) => {
-        if(error) {
-            return console.log('Unable to fetch task')
-        }
-        console.log(task)
-    })
-    db.collection('tasks').find({completed: false}).toArray((error, task) => {
-        console.log(task)
-    })
-    
-    //To find one document (the first one found)
-    // db.collection('users').findOne({name: 'Christine', age: 1}, (error, user) => {
-    //     if(error) {
-    //         return console.log('Unable to fetch')
+    // db.collection('users').updateOne({
+    //     _id: new ObjectId('62b7a63781948b2c8901313d')
+    // }, {
+    //     //inc - increment
+    //     $inc: {
+    //         age: 1
     //     }
-    //     console.log(user)
+    // }).then((result) => {
+    //     console.log(result)
+    // }).catch((error) => {
+    //     console.log(error)
     // })
-    //To find many documents with the given parameter(s) - This doesn't require a callback but a cursor instead (a pointer to data)
-    //The cursor uses the callback
-    // db.collection('users').find({age: 27}).toArray((error, users) => {
-    //     console.log(users)
-    // })
-    // db.collection('users').find({age: 27}).count((error, count) => {
-    //     console.log(count)
-    // })
+
+    db.collection('tasks').updateMany({
+        completed: false
+    }, {
+        $set: {
+            completed: true
+        }
+    }).then((result) => {
+        console.log(result)
+    }).catch(() => {
+        console.log(error)
+    })
 })
-
-
-

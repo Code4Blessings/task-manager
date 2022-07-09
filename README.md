@@ -3,11 +3,16 @@
 ## Inspired by The Complete Nodejs Developer Course 
 by Andrew Mead
 
-## To get to the path of mongodb
+**To acccess all of the notes for this course, download the PDF guide located in Section 1:2 of this course**
+**Documentation links are also located in the guide**
+
+### To get to the path of mongodb
 
 **1. cd ~ (to get to the root)**
 **2. pwd**
 **3. Then type: /Users/(your username on your machine)/mongodb/bin/mongod --dbpath=/Users/(your username on your machine)/mongodb-data**
+
+- For solutions to all of the challenges, please check the PDF Guide
 
 ## SQL (Structured Query Language) vs NoSQL Databases (Not Only Structured Query Language)
 
@@ -129,6 +134,7 @@ Create a new tasks collection
 
 ## Update Lesson
 
+```
     const updatePromise = db.collection('users').updateOne({
         _id: new ObjectId("61be046d787a61c3b18e83f6")
     }, {
@@ -142,27 +148,29 @@ Create a new tasks collection
         console.log(error)
     })
 
-#### Goal Assignment: Use updateMany to complete all tasks
-        1. Check the documentation for UpdateMany
-        2. Setup the call with the query and the updates
-        3. Use promise methods to setup the success/error handlers
-        4. Test your work
+```
+- To shorten the syntax, we can remove "const updatePromise" and write the following
 
- const updateTasks = db.collection('tasks').updateMany({
-        completed: false
+```
+ db.collection('users').updateOne({
+        _id: new ObjectId("61be046d787a61c3b18e83f6")
     }, {
-        $set: {
-            completed: true
+        $inc: {
+            age: 1
         }
-    })
-    updateTasks.then((result) => {
+    }).then((result) => {
         console.log(result)
     }).catch((error) => {
         console.log(error)
     })
 
-#### Challenge: Use find and findOne with tasks
 
-1. Use findOne to fetch the last task by its id (print doc to console)
-2. Use find to fetch all tasks that are not completed (print docs to the console)
-3. Test your work
+```
+
+#### Challenge: Use updateMany to complete all tasks 
+        1. Check the documentation for UpdateMany
+        2. Setup the call with the query and the updates
+        3. Use promise methods to setup the success/error handlers
+        4. Test your work
+
+ 

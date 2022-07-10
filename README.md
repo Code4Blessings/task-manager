@@ -197,3 +197,10 @@ db.collection('users').deleteMany({
 2. Setup the call with the query
 3. Use the promise methods to setup the success/error handlers
 4. Test your work!
+
+#### Challenge: Create a model for tasks
+
+1. Define the model with description and completed fields
+2. Create a new instance of the model
+3. Save the model to the database
+4. Test your work!

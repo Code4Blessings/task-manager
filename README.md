@@ -204,3 +204,11 @@ db.collection('users').deleteMany({
 2. Create a new instance of the model
 3. Save the model to the database
 4. Test your work!
+
+#### Challenge: Add a password field to user
+
+1. Setup the field as a required string
+2. Ensure the length is greater than 6
+3. Trim the password
+4. Ensure the password doesn't contain "password"
+5. Test your work!

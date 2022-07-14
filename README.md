@@ -198,6 +198,72 @@ db.collection('users').deleteMany({
 3. Use the promise methods to setup the success/error handlers
 4. Test your work!
 
+## Creating a Model
+
+- Here we create a model for a User
+
+```
+const User = mongoose.model('User', {
+    name: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        default: 0,
+        required: true,
+        trim: true,
+        lowercase: true,
+        validate(value) {
+            if(!validator.isEmail(value)) {
+                throw new Error('Email is invalid')
+            }
+        }
+    },
+    password: {
+        type: String,
+        required: true,
+        trim: true,
+        minLength: 7,
+        validate(value) {
+            if(value.toLowerCase().includes('password')) {
+                throw new Error('Password cannot contain password')
+            }
+        },
+    }, 
+    age: {
+        type: Number,
+        default: 0,
+        validate(value) {
+            if(value < 0) {
+                throw new Error("Age must be a positive number")
+            } 
+        }
+    }
+})
+
+```
+
+- Here we show how to create a user based on the model
+
+```
+
+const me = new User({
+    name: 'Sam',
+    email: 'sam@email.com',
+    password: 'Password123',
+    age: 80
+})
+
+me.save().then(() => {
+    console.log(me)
+}).catch((error) => {
+    console.log('Error', error)
+})
+
+```
+
 #### Challenge: Create a model for tasks
 
 1. Define the model with description and completed fields
@@ -212,3 +278,31 @@ db.collection('users').deleteMany({
 3. Trim the password
 4. Ensure the password doesn't contain "password"
 5. Test your work!
+
+#### Challenge: Add Validation and Sanitization to task
+
+1. Trim the description and make it required.
+2. Make completed optional and default it to false
+3. Test your work with and without errors
+
+## The REST API
+- Representational State Transfer - Application Programming Interface (REST API or RESTful API)
+- Is stateless but provides all the data the server needs to satisfy the request
+
+#### Flow
+
+**GET Request**
+
+- The client needs data to show  -> makes a GET request to the server -> the server receives the request, provides the data and a status 200 response -> the client renders the data
+
+**POST Request**
+
+- The client needs to create data  -> makes a POST request to the server -> the server receives the request, confirms the data and a status 201 response is sent to the client
+
+#### The Task Resource
+
+**Create** POST /tasks
+**Read** GET /tasks
+**Read** GET /tasks/:id
+**Update** Patch /tasks/:id
+**Delete** DELETE /tasks/:id

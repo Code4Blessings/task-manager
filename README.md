@@ -306,3 +306,10 @@ me.save().then(() => {
 **Read** GET /tasks/:id
 **Update** Patch /tasks/:id
 **Delete** DELETE /tasks/:id
+
+#### Challenge: Setup the task creation endpoint
+
+1. Create a separate file for the task model (load it into index.js)
+2. Create the task creation endpoint (handle success and error)
+3. Test the endpoint from Postman with good and bad data
+

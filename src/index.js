@@ -21,7 +21,23 @@ app.post('/users', (req, res) => {
 })
 
 app.get('/users', (req, res) => {
-    User.find({})
+    User.find({}).then((users) => {
+        res.send(users)
+    }).catch((e) => {
+        res.status(500).send(e)
+    })
+})
+
+app.get('/users/:id', (req, res) => {
+   const _id = req.params.id
+    User.findById(_id).then((user) => {
+        if(!user) {
+            res.status(404).send()
+        }
+        res.status(200).send(user)
+    }).catch((e) => {
+        res.status(500).send(e)
+    })
 })
 
 app.post('/tasks', (req, res) => {
@@ -32,6 +48,30 @@ app.post('/tasks', (req, res) => {
     }).catch((error) => {
         res.status(400).json({
             errorMessage: error.message
+        })
+    })
+})
+
+app.get('/tasks', (req, res) => {
+    Task.find({}).then((tasks) => {
+        res.send(tasks)
+    }).catch((e) => {
+        res.status(500).json({
+            errorMessage: e.message
+        })
+    })
+})
+
+app.get('/tasks/:id', (req, res) => {
+    const _id = req.params.id
+    Task.findById(_id).then((task) => {
+        if(!task) {
+            res.status(404).send()
+        }
+        res.status(200).send(task)
+    }).catch((e) => {
+        res.status(500).json({
+            errorMessage: e.message
         })
     })
 })

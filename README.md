@@ -313,3 +313,8 @@ me.save().then(() => {
 2. Create the task creation endpoint (handle success and error)
 3. Test the endpoint from Postman with good and bad data
 
+#### Challenge: Setup the task reading endpoints
+
+1. Create an endpoint for fetching all tasks
+2. Create an endpoint for fetching a task by its id
+3. Setup new requests in Postman and test your work

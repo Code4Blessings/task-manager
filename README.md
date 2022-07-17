@@ -351,10 +351,19 @@ Promise  -- pending -->
 
 ```
 
-#### Mess Around with Promise Chaining
+#### Challenge: Mess Around with Promise Chaining
 
 1. Create promise-chaining-2.js
 2. Load in mongoose and task model
 3. Remove a given task by id
 4. Get and print the total number of incomplete tasks
 5. Test your work!
+
+#### Challenge: Use Async/Await
+
+1. Create deleteTaskAndCount as an async function
+    - Accept id of task to remove
+2. Use awaiy to delete task and count up incomplete tasks
+3. Return the count
+4. Call the function and attach then/catch to log results
+5. Test Your work4

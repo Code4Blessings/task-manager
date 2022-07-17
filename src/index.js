@@ -1,5 +1,5 @@
 const express = require('express')
-const mongoose = require('./db/mongoose')
+require('./db/mongoose')
 const User = require('./models/user')
 const Task = require('./models/task')
 

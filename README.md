@@ -366,4 +366,9 @@ Promise  -- pending -->
 2. Use awaiy to delete task and count up incomplete tasks
 3. Return the count
 4. Call the function and attach then/catch to log results
-5. Test Your work4
+5. Test Your work!
+
+#### Challenge: Refactor task routes to use async await
+
+1. Refacttor task routes to use async await
+2. Test all routes in Postman

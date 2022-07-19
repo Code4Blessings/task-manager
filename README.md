@@ -372,3 +372,13 @@ Promise  -- pending -->
 
 1. Refacttor task routes to use async await
 2. Test all routes in Postman
+
+#### Challenge: Allow for task updates
+
+1. Setup the route handler
+2. Send error if unknown updates
+3. Attempt to update the task
+    - Handle task not found
+    - Handle validation errors 
+    - Handle success
+4. Test your work!!!

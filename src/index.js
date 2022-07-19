@@ -13,10 +13,10 @@ app.post('/users', async (req, res) => {
 
     try {
         await user.save()
-         res.status(201).send(user)
+        res.status(201).send(user)
     }catch(e) {
         res.status(400).json({
-             errorMessage: e.message
+             error: e.message
         })
     }
 })
@@ -39,9 +39,32 @@ app.get('/users/:id', async (req, res) => {
         }
         res.status(200).send(user)
     }catch(e) {
-        res.status(500).json({ errorMessage: e.message})
+        res.status(500).json({ error: e.message})
     }
 })
+
+app.patch('/users/:id', async (req,res) => {
+    const updates = Object.keys(req.body)
+    const allowedUpdates = ['name', 'email', 'password', 'age']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+    if(!isValidOperation) {
+        return res.status(400).send({error: 'Invalid updates'})
+    }
+    try {
+        const _id = req.params.id
+        const user = await User.findByIdAndUpdate(_id, req.body, {new: true, runValidators: true})
+        if(!user) {
+            return res.status(404).send()
+        }
+        res.send(user)
+    }catch(e) {
+        res.status(400).json({
+            error: e.message
+        })
+    }
+})
+
 
 app.post('/tasks', async (req, res) => {
     const task = new Task(req.body)
@@ -50,7 +73,7 @@ app.post('/tasks', async (req, res) => {
         res.status(201).send(task)
     }catch(e) {
         res.status(400).json({
-            errorMessage: error.message
+            error: error.message
         })
     }
 })
@@ -61,7 +84,7 @@ app.get('/tasks', async (req, res) => {
          res.send(tasks)
     }catch(e) {
         res.status(500).json({
-            errorMessage: e.message
+            error: e.message
         })
     }
 })
@@ -76,7 +99,29 @@ app.get('/tasks/:id', async (req, res) => {
         res.status(200).send(task)
     }catch(e) {
         res.status(500).json({
-            errorMessage: e.message
+            error: e.message
+        })
+    }
+})
+
+app.patch('/tasks/:id', async (req, res) => {
+    const updates = Object.keys(req.body)
+    const allowedUpdates = ['description', 'completed']
+    const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
+
+    if(!isValidOperation) {
+        res.status(400).send('Invalid Update')
+    }
+    try{
+        const _id = req.params.id
+        const task = await Task.findByIdAndUpdate(_id, req.body, {new: true, runValidators: true})
+        if(!task) {
+            return res.status(404).send()
+        }
+        res.send(task)
+    }catch(e) {
+        res.status(500).json({
+            error: e.message
         })
     }
 })

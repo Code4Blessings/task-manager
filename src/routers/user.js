@@ -4,7 +4,7 @@ require('../db/mongoose')
 const User = require('../models/user')
 
 
-router.post('/users', async (req, res) => {
+router.post('/', async (req, res) => {
     const user = new User(req.body)
 
     try {
@@ -17,7 +17,7 @@ router.post('/users', async (req, res) => {
     }
 })
 
-router.get('/users', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const users = await User.find({})
         res.send(users)
@@ -26,7 +26,7 @@ router.get('/users', async (req, res) => {
     }
 })
 
-router.get('/users/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     try {
         const _id = req.params.id
         const user = await User.findById(_id)
@@ -39,7 +39,7 @@ router.get('/users/:id', async (req, res) => {
     }
 })
 
-router.patch('/users/:id', async (req,res) => {
+router.patch('/:id', async (req,res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -61,7 +61,7 @@ router.patch('/users/:id', async (req,res) => {
     }
 })
 
-router.delete('/users/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const _id = req.params.id
         const user = await User.findByIdAndDelete(_id)

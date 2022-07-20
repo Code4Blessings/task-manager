@@ -391,3 +391,11 @@ Promise  -- pending -->
     - Handle task not found
     - Handle error
 3. Test your work!
+
+#### Challenge: Create Task Router
+
+1. Create new file that creates/exports new router
+2. Move all the task routes over
+3. Load in that new with the express app
+4. Test your work
+

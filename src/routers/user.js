@@ -4,6 +4,7 @@ require('../db/mongoose')
 const User = require('../models/user')
 
 
+
 router.post('/', async (req, res) => {
     const user = new User(req.body)
 

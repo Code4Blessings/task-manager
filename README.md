@@ -382,3 +382,12 @@ Promise  -- pending -->
     - Handle validation errors 
     - Handle success
 4. Test your work!!!
+
+#### Challenge: Allow for removal of tasks
+
+1. Setup the endpoint handler
+2. Attempt to delete the task by id
+    - Handle success
+    - Handle task not found
+    - Handle error
+3. Test your work!

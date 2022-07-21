@@ -399,3 +399,9 @@ Promise  -- pending -->
 3. Load in that new with the express app
 4. Test your work
 
+#### Challenge: Change How Tasks Are Updated
+
+1. Find the task
+2. Alter the task properties 
+3. Save the task
+4. Test your work by updating a task in postman

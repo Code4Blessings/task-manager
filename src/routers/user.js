@@ -4,7 +4,7 @@ require('../db/mongoose')
 const User = require('../models/user')
 
 
-
+//Signup Route
 router.post('/', async (req, res) => {
     const user = new User(req.body)
 
@@ -18,13 +18,15 @@ router.post('/', async (req, res) => {
     }
 })
 
+//Signin Route
 router.post('/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
+        const token = await user.generateAuthToken()
         console.log(user)
         res.send(user)
     }catch(e) {
-        res.status(400).send()
+        res.status(400).json({error: e.message})
     }
 })
 
@@ -34,7 +36,7 @@ router.get('/', async (req, res) => {
         res.send(users)
     }catch(e) {
         console.log(e)
-        res.status(404).send()
+        res.status(404).json({error: e.message})
     }
 })
 

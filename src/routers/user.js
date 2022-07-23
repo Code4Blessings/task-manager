@@ -1,5 +1,6 @@
 const express = require('express')
 const router = require('express').Router()
+const auth = require('../middleware/auth')
 require('../db/mongoose')
 const User = require('../models/user')
 

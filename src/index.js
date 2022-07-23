@@ -6,12 +6,21 @@ const taskRouter = require('./routers/task')
 const app = express()
 const port = process.env.PORT || 3000
 
-//Must be above our app.use calls
+//Middleware must be above our app.use calls
 
-app.use((req, res, next) => {
-    console.log(req.method, req.path)
-    next()
-})
+// app.use((req, res, next) => {
+//     if(req.method === 'GET') {
+//         res.send('Get requests are disabled')
+//     }else {
+//         next()
+//     }
+// })
+
+// app.use((req, res, next) => {
+//     if(req.method === 'GET' || req.method === 'POST' || req.method === 'PATCH' || req.method === 'DELETE'){
+//         res.status(503).send('Site temporaily down for maintenance and will return shortly')
+//     }
+// })
 
 app.use(express.json())
 app.use('/users', userRouter)

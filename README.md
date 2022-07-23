@@ -417,3 +417,11 @@ Promise  -- pending -->
 - Without Middleware: new request -> run route handler
 
 - With middleware: new request -> do something -> run route handler
+
+- Middleware must be added before the app.use calls in the index.js file
+
+#### Challenge: Set up middleware for maintenance mode
+
+1. Register a new middleware function
+2. Send back a mainetence message with a 503 status code
+3. Try your requests from the server and confirm that status/message shows

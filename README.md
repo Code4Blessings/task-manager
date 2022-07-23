@@ -405,3 +405,15 @@ Promise  -- pending -->
 2. Alter the task properties 
 3. Save the task
 4. Test your work by updating a task in postman
+
+#### Challenge: Have Signup send back auth token
+
+1. Generate a token for the saved user
+2. Send back both the token and the user
+3. Create a new user from Postmans anbd confirm the token is there.
+
+## Express Middleware
+
+- Without Middleware: new request -> run route handler
+
+- With middleware: new request -> do something -> run route handler

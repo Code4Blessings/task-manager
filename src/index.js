@@ -35,11 +35,11 @@ app.listen(port, () => {
 const jwt = require('jsonwebtoken')
 
 const myFunction = async () => {
-    const token = jwt.sign({_id: 'abc123'}, 'thisismynewcourse', {expiresIn: '7 days'})
+    const token = jwt.sign({_id: 'abc123'}, 'keepitsecretkeepitsafe', {expiresIn: '7 days'})
     console.log(token)
 
     //.verify is the base64 decode which takes in 2 arguments--the token you are trying to verify and the secret
-    const data = jwt.verify(token, 'thisismynewcourse')
+    const data = jwt.verify(token, 'keepitsecretkeepitsafe')
     console.log(data)
 }
 

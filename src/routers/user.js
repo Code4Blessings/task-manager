@@ -32,14 +32,9 @@ router.post('/login', async (req, res) => {
     }
 })
 
-router.get('/', auth, async (req, res) => {
-    try {
-        const users = await User.find({})
-        res.send(users)
-    }catch(e) {
-        console.log(e)
-        res.status(404).json({error: e.message})
-    }
+//This will allow someone to get their own profile
+router.get('/profile', auth, async (req, res) => {
+    res.send(req.user)
 })
 
 router.get('/:id', async (req, res) => {

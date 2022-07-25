@@ -12,6 +12,15 @@ by Andrew Mead
 **2. pwd**
 **3. Then type: /Users/(your username on your machine)/mongodb/bin/mongod --dbpath=/Users/(your username on your machine)/mongodb-data**
 
+## Postman Notes
+
+#### To Set Up Environment Variables
+
+**Set Up URL Variable for all the Requests**
+- This will make it easier to change the url in one spot rather than going in and changing the url under each request when needed.
+
+1. Click on 
+
 - For solutions to all of the challenges, please check the PDF Guide
 
 ## SQL (Structured Query Language) vs NoSQL Databases (Not Only Structured Query Language)

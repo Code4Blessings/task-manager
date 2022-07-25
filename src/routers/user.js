@@ -6,6 +6,7 @@ const User = require('../models/user')
 
 
 //Signup Route
+//This route generates a token so that the user doesn't have to go in and sign in again after signing up
 router.post('/', async (req, res) => {
     const user = new User(req.body)
 
@@ -21,6 +22,7 @@ router.post('/', async (req, res) => {
 })
 
 //Signin Route
+//Also generates a token
 router.post('/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)

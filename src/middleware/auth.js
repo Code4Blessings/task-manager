@@ -16,6 +16,7 @@ const auth = async (req, res, next) => {
             throw new Error()
         }
         //6. If the user is authenticated, we can give the routehandler access to the user we fetched from the data
+        req.token = token //This equals the token that was used when the user logged in. This way when the user logs out, it will target this particular token.
         req.user = user
         next()
     }catch(e) {

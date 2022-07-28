@@ -434,3 +434,12 @@ Promise  -- pending -->
 1. Register a new middleware function
 2. Send back a mainetence message with a 503 status code
 3. Try your requests from the server and confirm that status/message shows
+
+#### Challenge: Create a way to logout of all sessions
+
+1. Setup POST/users/logoutAll
+2. Create the route handler to wipe the tokens array
+    - Send 200 or 500
+3. Test your work
+    -Login a few times and logout of all. Check database
+    

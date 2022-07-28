@@ -49,6 +49,18 @@ const userSchema = new mongoose.Schema({
         }]
 })
 
+//This is to hide private data
+userSchema.methods.toJSON = function () {
+    const user = this
+    //user.toObject (from mongoose) will give us an Object with justthe user data we want and change what we want to expose
+    const userObject = user.toObject()
+
+    delete userObject.password
+    delete userObject.tokens
+
+    return userObject
+}
+
 userSchema.methods.generateAuthToken = async function () {
     const user = this
     const token = jwt.sign({_id: user._id.toString()}, 'keepitsecretkeepitsafe')

@@ -34,7 +34,7 @@ router.post('/login', async (req, res) => {
     }
 })
 
-//Logout Route
+//Logout Route - logout of just one session
 router.post('/logout', auth, async (req, res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
@@ -43,6 +43,17 @@ router.post('/logout', auth, async (req, res) => {
         await req.user.save()
         res.send()
     }catch (e) {
+        res.status(500).send()
+    }
+})
+
+//Logout of all sessions
+router.post('/logoutAll', auth, async (req, res) => {
+    try {
+        req.user.tokens = []
+        await req.user.save()
+        res.send()
+    }catch(e) {
         res.status(500).send()
     }
 })

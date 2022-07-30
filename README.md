@@ -442,4 +442,11 @@ Promise  -- pending -->
     - Send 200 or 500
 3. Test your work
     -Login a few times and logout of all. Check database
-    
+
+
+#### Challenge: Refactor the update profile route
+
+1. Update the URL to /users/profile
+2. Add the authentication middleware into the mix
+3. Use the existing user document instead of fetching via param id
+4. Test your work in Postman!

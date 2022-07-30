@@ -63,20 +63,8 @@ router.get('/profile', auth, async (req, res) => {
     res.send(req.user)
 })
 
-router.get('/:id', async (req, res) => {
-    try {
-        const _id = req.params.id
-        const user = await User.findById(_id)
-        if(!user) {
-            return res.status(404).send()
-        }
-        res.status(200).send(user)
-    }catch(e) {
-        res.status(500).json({ error: e.message})
-    }
-})
 
-router.patch('/:id', async (req,res) => {
+router.patch('/profile', async (req,res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -102,14 +90,16 @@ router.patch('/:id', async (req,res) => {
     }
 })
 
-router.delete('/:id', async (req, res) => {
+//This allows a logged in user to delete their own profile
+router.delete('/profile', auth, async (req, res) => {
     try {
-        const _id = req.params.id
-        const user = await User.findByIdAndDelete(_id)
-        if(!user) {
-            return res.status(404).send()
-        }
-        res.send(user)
+        // const _id = req.params._id
+        // const user = await User.findByIdAndDelete(_id)
+        // if(!user) {
+        //     return res.status(404).send()
+        // }
+        await req.user.remove()
+        res.send(req.user)
     }catch(e) {
         res.status(500).json({error: e.message})
     }

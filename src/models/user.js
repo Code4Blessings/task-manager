@@ -49,6 +49,13 @@ const userSchema = new mongoose.Schema({
         }]
 })
 
+//To create a relational database
+userSchema.virtual('tasks', {
+    ref: 'Task',
+    localField: '_id', //primary key
+    foreignField: 'owner' //foreign key
+})
+
 //This is to hide private data
 userSchema.methods.toJSON = function () {
     const user = this

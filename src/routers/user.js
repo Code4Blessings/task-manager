@@ -64,7 +64,7 @@ router.get('/profile', auth, async (req, res) => {
 })
 
 
-router.patch('/profile', async (req,res) => {
+router.patch('/profile', auth, async (req,res) => {
     const updates = Object.keys(req.body)
     const allowedUpdates = ['name', 'email', 'password', 'age']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
@@ -73,16 +73,15 @@ router.patch('/profile', async (req,res) => {
         return res.status(400).send({error: 'Invalid updates'})
     }
     try {
-        const _id = req.params.id
-        const user = await User.findById(_id)
-        updates.forEach((update) => user[update] = req.body[update])
+        // const _id = req.params._id
+        // const user = await User.findById(_id)
+        updates.forEach((update) => req.user[update] = req.body[update])
 
-        await user.save()
-        //const user = await User.findByIdAndUpdate(_id, req.body, {new: true, runValidators: true})
-        if(!user) {
-            return res.status(404).send()
-        }
-        res.send(user)
+        await req.user.save()
+        // if(!user) {
+        //     return res.status(404).send()
+        // }
+        res.send(req.user)
     }catch(e) {
         res.status(400).json({
             error: e.message

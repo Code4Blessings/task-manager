@@ -123,7 +123,7 @@ Create a new tasks collection
     db.collection('users').find({age: 47}).toArray((error, users) => {
         console.log(users);
     })
-    ### Goal: Use find and findone with tasks
+    ### Goal: Use find and findOne with tasks
     1. Use findOne to fetch the last task by id (print doc to console)
     2. Use find to fetch all the tasks that are not completed (print docs to console)
     3. Test your work
@@ -450,3 +450,15 @@ Promise  -- pending -->
 2. Add the authentication middleware into the mix
 3. Use the existing user document instead of fetching via param id
 4. Test your work in Postman!
+
+#### Challenge: Refactor GET/tasks
+
+1. Add authentication
+2. Return tasks only for the authenticated user
+3. Test your work.
+
+#### Challenge: Refactor DELETE /tasks/:id
+
+1. Add authentication 
+2. Find the task by _id/owner (findOneAndDelete)
+3. Test your work.

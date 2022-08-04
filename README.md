@@ -462,3 +462,9 @@ Promise  -- pending -->
 1. Add authentication 
 2. Find the task by _id/owner (findOneAndDelete)
 3. Test your work.
+
+#### Challenge: Refactor task model to add timestamps
+
+1. Explicitly create schema
+2. Setup timestamps
+3. Create tasks from Postman to test work

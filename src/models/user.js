@@ -48,6 +48,8 @@ const userSchema = new mongoose.Schema({
                 required: true
             }
         }]
+}, {
+    timestamps: true
 })
 
 //To create a relational database
@@ -110,11 +112,6 @@ userSchema.pre('remove', async function(next) {
     next()
 })
 
-// userSchema.pre('remove', async function (next) {
-//     const user = this
-//     await Task.deleteMany({owner: user._id})
-//     next()
-// })
 
 const User = mongoose.model('User', userSchema)
 

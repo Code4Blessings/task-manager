@@ -2,12 +2,11 @@ const mongoose = require('mongoose')
 
 //Each task will store the id of the user who created it
 
-const Task = mongoose.model('Task', {
+const taskSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
         trim: true
-        
     },
     completed: {
         type: Boolean,
@@ -18,6 +17,12 @@ const Task = mongoose.model('Task', {
         required: true,
         ref: 'User'
     }
+}, {
+    timestamps: true
 })
+
+const Task = mongoose.model('Task', taskSchema)
+
+
 
 module.exports = Task

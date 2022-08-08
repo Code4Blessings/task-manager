@@ -468,3 +468,11 @@ Promise  -- pending -->
 1. Explicitly create schema
 2. Setup timestamps
 3. Create tasks from Postman to test work
+
+#### Challenge: Setup support for skip
+
+1. Setup "skip" option
+    - Parse query value to integer
+2. Fire off some requests to test it's working
+    -  Fetch the 1st page of 2 and then the third page of 2
+    -  Fetch the first page of 3 and then the second page of 1

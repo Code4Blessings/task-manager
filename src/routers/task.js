@@ -20,7 +20,11 @@ router.post('/', auth, async (req, res) => {
     }
 })
 
+
+//limit allows you to limit the amount of data on each page
+//skip allows you to iterate over pages.  If the limit is 10 and skip is 0, then I get the first 10 results. If my limit is 10 and I skip 10 then I get the next 10 results on the second page.  If I skip 20, I get the 10 results on the third page.
 //GET /tasks?completed=false
+//GET /tasks?limit=10&skip=10
 router.get('/', auth, async (req, res) => {
     const match = {}
     if(req.query.completed) {
@@ -29,7 +33,12 @@ router.get('/', auth, async (req, res) => {
     try {
        await req.user.populate({
         path: 'tasks',
-        match
+        match,
+        options: {
+            //parseInt - allows us to parse a string that contains a number into an actual integer
+            limit: parseInt(req.query.limit),
+            skip: parseInt(req.query.skip)
+        }
        })
          res.send(req.user.tasks)
     }catch(e) {

@@ -23,6 +23,8 @@ by Andrew Mead
 
 - For solutions to all of the challenges, please check the PDF Guide
 
+
+
 ## SQL (Structured Query Language) vs NoSQL Databases (Not Only Structured Query Language)
 
 #### Language

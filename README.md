@@ -478,3 +478,12 @@ Promise  -- pending -->
 2. Fire off some requests to test it's working
     -  Fetch the 1st page of 2 and then the third page of 2
     -  Fetch the first page of 3 and then the second page of 1
+
+## Testing
+
+#### Test temperature conversion functions
+
+1. Export both functions and load them into test suite
+2. Create "Should convert 32 F to 0 C"
+3. Create "Should convert 0 C to 32 F"
+4. Run the Jest to test your work!

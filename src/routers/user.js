@@ -3,6 +3,8 @@ const router = require('express').Router()
 const auth = require('../middleware/auth')
 require('../db/mongoose')
 const User = require('../models/user')
+const multer = require('multer')
+
 
 
 //Signup Route
@@ -102,6 +104,15 @@ router.delete('/profile', auth, async (req, res) => {
     }catch(e) {
         res.status(500).json({error: e.message})
     }
+})
+
+//File Uploads
+
+const avatar = multer({
+    dest: 'avatars'
+})
+router.post('/profile/avatar', avatar.single('avatar'), (req, res) => {
+    res.send()
 })
 
 module.exports = router

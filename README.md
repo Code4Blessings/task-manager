@@ -1,6 +1,6 @@
 # Task-Manager App
 
-## Lesson from The Complete Nodejs Developer Course 
+## Challenges from The Complete Nodejs Developer Course 
 by Andrew Mead
 
 **To acccess all of the notes for this course, download the PDF guide located in Section 1:2 of this course**
@@ -500,6 +500,12 @@ Promise  -- pending -->
 3. Test your work!
     - Upload larger files (should fail)
     - Upload non-images (should fail)
+
+#### Challenge: Clean up error handling in user.js route
+
+1. Setup an error handler function
+2. Send back a 400 with the error message
+3. Test your work
 
 ## Testing
 

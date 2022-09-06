@@ -1,6 +1,6 @@
 # Task-Manager App
 
-## Inspired by The Complete Nodejs Developer Course 
+## Lesson from The Complete Nodejs Developer Course 
 by Andrew Mead
 
 **To acccess all of the notes for this course, download the PDF guide located in Section 1:2 of this course**
@@ -489,6 +489,17 @@ Promise  -- pending -->
 4. Send back a 200 response from route handler
 5. Test your work. Create new Task App request and upload image
 
+## Regular Expressions (Regex) -- Regular Expression
+
+- Check lesson for File Validation
+
+#### Challenge: Add validation to avatar route
+
+1. Limit the upload size to 1 MB
+2. Only allow jpg, jpeg, and png
+3. Test your work!
+    - Upload larger files (should fail)
+    - Upload non-images (should fail)
 
 ## Testing
 

@@ -120,7 +120,7 @@ const avatar = multer({
         cb(undefined, true)
     }
 })
-router.post('/profile/avatar', avatar.single('avatar'), (req, res) => {
+router.post('/profile/avatar', auth, avatar.single('avatar'), (req, res) => {
     res.send()
 }, (error, req, res, next) => {
     res.status(400).send({ error: error.message})
